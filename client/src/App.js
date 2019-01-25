@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import API from "./lib/API";
 
 class App extends Component {
+  state = {
+    articles: []
+
+  };
+
+  componentDidMount (){
+    API.getArticles().then(articles => this.setState({articles: articles}));
+
+  }
+
   render() {
     return (
       <div className="App">

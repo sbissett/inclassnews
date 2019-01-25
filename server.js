@@ -3,7 +3,9 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
-const db_uri = "mongodbdb://localhost/scraped_news"
+const db_uri = "mongodb://localhost/scraped_news"
+const DB = require("./Model");
+const apiRoutes = require("./routes/api")(app);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
